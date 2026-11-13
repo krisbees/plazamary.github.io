@@ -1,0 +1,30 @@
+
+body {
+    background: #f8e9ed;
+    font-family: Georgia, serif;
+    color: #603d4b;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+#game-container {
+    max-width: 700px;
+    margin: auto;
+    padding: 50px 25px;
+    background: #fffaf8;
+    border-radius: 20px;
+}
+
+button {
+    background: #c77d91;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    padding: 14px 25px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background: #a85d73;
+}

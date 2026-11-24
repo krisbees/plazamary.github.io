@@ -28,3 +28,93 @@ button {
 button:hover {
     background: #a85d73;
 }
+
+
+#crossword {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 2px;
+    max-width: 360px;
+    margin: 25px auto;
+}
+
+.crossword-square {
+    aspect-ratio: 1;
+    position: relative;
+    min-width: 0;
+}
+
+.active-square {
+    background: #fffaf8;
+    border: 1px solid #c77d91;
+    border-radius: 3px;
+}
+
+.crossword-square input {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    border: none;
+    background: transparent;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 22px;
+    color: #603d4b;
+    padding: 5px 0 0;
+    outline: none;
+}
+
+.active-square:focus-within {
+    background: #f5cbd9;
+}
+
+.clue-number {
+    position: absolute;
+    top: 2px;
+    left: 3px;
+    font-size: 10px;
+    pointer-events: none;
+}
+
+.crossword-clues {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+    text-align: left;
+    font-size: 14px;
+}
+
+#reward {
+    background: #fffaf8;
+    color: #603d4b;
+    border: none;
+    border-radius: 20px;
+    padding: 25px;
+    width: min(400px, 80vw);
+    text-align: center;
+    animation: pop-in 0.4s ease;
+}
+
+#reward::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(4px);
+}
+
+#reward img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+@keyframes pop-in {
+    from {
+        opacity: 0;
+        transform: scale(0.7);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

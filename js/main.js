@@ -28,4 +28,9 @@ function goToLevel(level) {
             <p>I'll put a picture and a note here!</p>
         `;
     }
+
+    if (level === "crossword") {
+        startCrossword();
+        return;
+    }
 }

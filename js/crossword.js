@@ -63,8 +63,8 @@ function startCrossword() {
             <img src="assets/images/IMG_4007.jpeg"
                  style="width: 100%; max-width: 350px;">
             <p>Cheers!</p>
-            <button onclick="this.parentElement.close()">
-                Close
+            <button onclick="this.closest('dialog').close(); goToLevel('puzzle')">
+                Next Level ♡
             </button>
         </dialog>
     `;

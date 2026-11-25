@@ -118,3 +118,265 @@ button:hover {
         transform: scale(1);
     }
 }
+
+
+/* Photo Puzzle */
+
+#photo-puzzle {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    width: 100%;
+    max-width: 360px;
+    margin: 25px auto;
+}
+
+.puzzle-piece {
+    aspect-ratio: 1;
+    background-size: 300% 300%;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: filter 0.2s;
+}
+
+.puzzle-piece:hover {
+    filter: brightness(1.1);
+}
+
+.puzzle-piece.selected {
+    outline: 3px solid #a85d73;
+    outline-offset: -3px;
+    filter: brightness(1.15);
+}
+
+#photo-puzzle.solved {
+    gap: 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.solved .puzzle-piece {
+    border-radius: 0;
+    cursor: default;
+    pointer-events: none;
+}
+
+#puzzle-message {
+    animation: pop-in 0.5s ease;
+}
+
+#move-count {
+    font-size: 14px;
+    color: #a85d73;
+}
+
+/* Mobile compatibility */
+@media (max-width: 600px) {
+    body {
+        margin: 0;
+        padding: 20px 10px;
+    }
+
+    #game-container {
+        padding: 25px 15px;
+    }
+
+    h1 {
+        font-size: 26px;
+    }
+
+    #crossword,
+    #photo-puzzle {
+        width: 100%;
+        max-width: 360px;
+    }
+
+    .crossword-clues {
+        gap: 15px;
+        font-size: 13px;
+    }
+
+    input {
+        font-size: 16px;
+    }
+
+    button {
+        touch-action: manipulation;
+    }
+
+    .puzzle-piece {
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+        user-select: none;
+    }
+}
+
+
+/* ===== FINAL PAGE ===== */
+
+#final-page {
+    animation: final-fade 0.8s ease both;
+}
+
+.final-label {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: #a85d73;
+}
+
+#final-title {
+    font-size: 36px;
+    margin-bottom: 30px;
+}
+
+#photo-montage {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 22px 15px;
+    padding: 15px 5px 30px;
+}
+
+.polaroid {
+    box-sizing: border-box;
+    width: 28%;
+    background: white;
+    padding: 8px 8px 4px;
+    box-shadow: 2px 5px 12px rgba(96, 61, 75, 0.15);
+    transform: rotate(var(--rotation));
+    animation: photo-appear 0.7s ease both;
+    transition: box-shadow 0.3s;
+}
+
+.polaroid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.polaroid p {
+    font-size: 13px;
+    font-style: italic;
+    color: #986477;
+    margin: 10px 0 6px;
+    overflow-wrap: anywhere;
+}
+
+.polaroid:hover {
+    box-shadow: 2px 8px 18px rgba(96, 61, 75, 0.25);
+}
+
+/* Personal letter */
+
+.love-letter {
+    background: #ffffff;
+    border: 1px solid #edd5dc;
+    border-radius: 6px;
+    padding: 35px;
+    margin: 25px auto;
+    text-align: left;
+    box-shadow: 0 4px 15px rgba(96, 61, 75, 0.06);
+    animation: final-fade 1.2s ease 1.6s both;
+}
+
+#letter-greeting {
+    font-size: 25px;
+    font-style: italic;
+    font-weight: normal;
+    margin-top: 0;
+}
+
+#letter-note {
+    white-space: pre-line;
+    font-size: 17px;
+    line-height: 1.9;
+    overflow-wrap: anywhere;
+}
+
+#letter-signature {
+    white-space: pre-line;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.6;
+    margin-top: 30px;
+    color: #a85d73;
+}
+
+.final-hearts {
+    color: #c77d91;
+    font-size: 30px;
+    letter-spacing: 10px;
+    margin-top: 35px;
+}
+
+#final-ending {
+    font-size: 14px;
+    font-style: italic;
+    color: #a85d73;
+}
+
+/* Animations */
+
+@keyframes final-fade {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes photo-appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px) rotate(0deg);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) rotate(var(--rotation));
+    }
+}
+
+/* iPhone compatibility */
+
+@media (max-width: 600px) {
+    #final-title {
+        font-size: 28px;
+    }
+
+    #photo-montage {
+        gap: 18px 12px;
+    }
+
+    .polaroid {
+        width: 43%;
+        padding: 6px 6px 3px;
+    }
+
+    .love-letter {
+        padding: 22px;
+    }
+
+    #letter-note {
+        font-size: 16px;
+        line-height: 1.8;
+    }
+
+    #letter-signature {
+        font-size: 18px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    #final-page,
+    .polaroid,
+    .love-letter {
+        animation: none;
+    }
+}

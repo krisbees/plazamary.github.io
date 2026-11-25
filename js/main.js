@@ -33,4 +33,14 @@ function goToLevel(level) {
         startCrossword();
         return;
     }
+
+    if (level === "puzzle") {
+        startPuzzle();
+        return;
+    }
+
+    if (level === "final") {
+        startFinal();
+        return;
+    }
 }
